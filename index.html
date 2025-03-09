@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutor4AI - AI Tutoring Services</title>
+    <title>Tutor4AI - AI Mindset Tutoring Services</title>
     <style>
         :root {
             --primary: #3498db;
@@ -407,27 +407,56 @@
             color: var(--primary);
         }
         
-        .social-links {
+        .blog-preview {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .blog-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .blog-img {
+            height: 200px;
+            background: url('/api/placeholder/400/200') center/cover;
+        }
+        
+        .blog-content {
+            padding: 2rem;
+        }
+        
+        .blog-content h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .blog-meta {
             display: flex;
             gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
         }
         
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            text-decoration: none;
+        .blog-section {
+            background-color: var(--light);
         }
         
-        .social-links a:hover {
-            background-color: var(--primary);
-            transform: translateY(-5px);
+        .view-more {
+            text-align: center;
+            margin-top: 3rem;
         }
         
         .copyright {
@@ -465,21 +494,22 @@
 <body>
     <header>
         <div class="logo">Tutor<span>4AI</span></div>
-        <div class="tagline">Personalized AI-Powered Learning Solutions</div>
+        <div class="tagline">Understanding the AI Mindset</div>
         <nav>
             <a href="#home" class="active">Home</a>
             <a href="#services">Services</a>
             <a href="#about">About Us</a>
             <a href="#testimonials">Testimonials</a>
+            <a href="#blog">Blog</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
     
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Transform Your Learning Experience with AI</h1>
-            <p>Personalized tutoring, immediate feedback, and adaptive learning paths designed for your success.</p>
-            <a href="#contact" class="btn">Schedule a Free Session</a>
+            <h1>Master the AI Mindset</h1>
+            <p>Learn how to effectively work with artificial intelligence to enhance your productivity and creativity.</p>
+            <a href="#contact" class="btn">Get Started Today</a>
         </div>
     </section>
     
@@ -493,23 +523,7 @@
                     <div class="service-img"></div>
                     <div class="service-content">
                         <h3>Personalized Tutoring</h3>
-                        <p>AI-powered one-on-one tutoring sessions tailored to your learning style, pace, and goals. Get help with homework, exam prep, or learning new concepts.</p>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-img"></div>
-                    <div class="service-content">
-                        <h3>Subject Mastery Programs</h3>
-                        <p>Comprehensive programs designed to build deep understanding in math, science, coding, humanities, and more. Our AI adapts to your progress.</p>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-img"></div>
-                    <div class="service-content">
-                        <h3>Test Preparation</h3>
-                        <p>Strategic preparation for standardized tests and exams with practice questions, simulated tests, and personalized feedback to improve your scores.</p>
+                        <p>AI-powered one-on-one tutoring sessions tailored to your learning style, pace, and goals. Our approach helps you understand how to think with and alongside AI systems to achieve better results.</p>
                     </div>
                 </div>
             </div>
@@ -521,9 +535,9 @@
             <div class="about-img"></div>
             <div class="about-content">
                 <h2>About Tutor4AI</h2>
-                <p>Tutor4AI was founded with a simple mission: to make high-quality education accessible to everyone through the power of artificial intelligence.</p>
-                <p>Our team of educators and AI specialists works together to create learning experiences that adapt to each student's unique needs, helping them achieve their academic goals faster and with greater confidence.</p>
-                <p>We believe that education should be personalized, engaging, and available whenever you need it. With our AI tutoring platform, we're making that vision a reality.</p>
+                <p>Tutor4AI is dedicated to helping individuals develop the unique mindset needed to effectively collaborate with artificial intelligence. In today's rapidly evolving technological landscape, understanding how to work with AI is becoming an essential skill.</p>
+                <p>Our mission is to bridge the gap between human creativity and AI capabilities. We believe that AI isn't just a tool to use, but a collaborator to work alongside. By understanding the strengths and limitations of AI systems, you can learn to communicate more effectively with them, formulate better prompts, and achieve more impressive results.</p>
+                <p>Through our personalized approach, we help you develop critical thinking skills that complement AI strengths, teaching you when to rely on AI and when to apply your uniquely human perspective. This balanced approach helps you maximize productivity while maintaining creative control and critical judgment.</p>
             </div>
         </div>
     </section>
@@ -535,37 +549,88 @@
             </div>
             <div class="testimonials">
                 <div class="testimonial-card">
-                    <p>"Tutor4AI helped me improve my calculus grade from a C to an A- in just one semester. The personalized approach identified exactly where I was struggling and helped me build confidence."</p>
+                    <p>"Learning the AI mindset has completely transformed how I approach my creative work. I'm now able to use AI tools as true collaborators rather than just utilities."</p>
                     <div class="client-info">
                         <div class="client-img"></div>
                         <div class="client-details">
                             <h4>Michael R.</h4>
-                            <p>College Student</p>
+                            <p>Digital Artist</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="testimonial-card">
-                    <p>"As a working parent, I needed flexible learning options for my daughter. Tutor4AI has been a game-changer. She can get help whenever she needs it, and I've seen her love for science grow tremendously."</p>
+                    <p>"As someone who was initially intimidated by AI, Tutor4AI helped me understand not just how to use these tools, but how to think alongside them. It's been invaluable for my business."</p>
                     <div class="client-info">
                         <div class="client-img"></div>
                         <div class="client-details">
                             <h4>Sarah K.</h4>
-                            <p>Parent</p>
+                            <p>Small Business Owner</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="testimonial-card">
-                    <p>"The test prep program for the SAT was exactly what I needed. The practice questions adapted to my skill level, and the explanations were clear. I scored 150 points higher than on my practice test!"</p>
+                    <p>"The personalized approach to understanding AI thinking patterns has helped me craft much more effective prompts. I'm getting results I never thought possible with the same AI tools."</p>
                     <div class="client-info">
                         <div class="client-img"></div>
                         <div class="client-details">
                             <h4>Jason T.</h4>
-                            <p>High School Student</p>
+                            <p>Content Creator</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section blog-section" id="blog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest from Our Blog</h2>
+            </div>
+            <div class="blog-preview">
+                <div class="blog-card">
+                    <div class="blog-img"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>March 1, 2025</span>
+                            <span>AI Mindset</span>
+                        </div>
+                        <h3>The Art of Prompt Engineering</h3>
+                        <p>Learn the foundational skills of crafting effective prompts that help AI understand your intentions and deliver better results.</p>
+                        <a href="blog/prompt-engineering.html" class="btn">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-img"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>February 15, 2025</span>
+                            <span>AI Collaboration</span>
+                        </div>
+                        <h3>Human-AI Collaboration: Finding the Balance</h3>
+                        <p>Discover strategies for effectively collaborating with AI while maintaining your creative voice and critical thinking skills.</p>
+                        <a href="blog/human-ai-collaboration.html" class="btn">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-img"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>February 2, 2025</span>
+                            <span>AI Learning</span>
+                        </div>
+                        <h3>Understanding AI Limitations and Strengths</h3>
+                        <p>An exploration of where AI excels, where it struggles, and how to adapt your approach for optimal results.</p>
+                        <a href="blog/ai-limitations-strengths.html" class="btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="blog/index.html" class="btn">View All Posts</a>
             </div>
         </div>
     </section>
@@ -578,30 +643,13 @@
             <div class="contact-container">
                 <div class="contact-info">
                     <h3>Contact Information</h3>
-                    <p>Have questions or ready to start your learning journey? Reach out to us today and we'll help you get started with the perfect tutoring solution.</p>
+                    <p>Have questions about developing your AI mindset? Ready to start your learning journey? Reach out to us today and we'll help you get started with personalized guidance.</p>
                     
                     <div class="contact-item">
                         <i>📧</i>
                         <div>
                             <h4>Email</h4>
                             <p>nathan@tutor4ai.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i>📱</i>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>+1 (123) 456-7890</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i>🕒</i>
-                        <div>
-                            <h4>Hours</h4>
-                            <p>Monday - Friday: 9am - 8pm</p>
-                            <p>Saturday: 10am - 4pm</p>
                         </div>
                     </div>
                 </div>
@@ -646,14 +694,8 @@
                     <a href="#services">Services</a>
                     <a href="#about">About</a>
                     <a href="#testimonials">Testimonials</a>
+                    <a href="#blog">Blog</a>
                     <a href="#contact">Contact</a>
-                </div>
-                
-                <div class="social-links">
-                    <a href="#"><span>FB</span></a>
-                    <a href="#"><span>TW</span></a>
-                    <a href="#"><span>IG</span></a>
-                    <a href="#"><span>LI</span></a>
                 </div>
             </div>
             
