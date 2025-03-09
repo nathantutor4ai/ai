@@ -3,126 +3,708 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Tutoring & Consulting | Learn AI in a Friendly Environment</title>
-    <meta name="description" content="Friendly AI tutoring and consulting services. Learn about AI, prompt engineering, and stay updated with weekly AI news.">
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- Analytics code will go here later -->
+    <title>Tutor4AI - AI Tutoring Services</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2ecc71;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --accent: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .logo span {
+            color: var(--light);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            border-radius: 50px;
+            margin: 0 auto;
+            width: fit-content;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            margin: 0 0.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        nav a.active {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .hero {
+            background: url('/api/placeholder/1200/600') center/cover;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            background-color: var(--secondary);
+        }
+        
+        .section {
+            padding: 5rem 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-img {
+            height: 200px;
+            background: url('/api/placeholder/400/200') center/cover;
+        }
+        
+        .service-content {
+            padding: 2rem;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .about-section {
+            background-color: white;
+            position: relative;
+        }
+        
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-img {
+            position: relative;
+            height: 400px;
+            background: url('/api/placeholder/600/400') center/cover;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-content {
+            position: relative;
+        }
+        
+        .about-content h2 {
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .about-content h2::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .testimonials-section {
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: """;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 4rem;
+            opacity: 0.2;
+            color: var(--primary);
+        }
+        
+        .client-info {
+            display: flex;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+        
+        .client-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: url('/api/placeholder/50/50') center/cover;
+            margin-right: 1rem;
+        }
+        
+        .client-details h4 {
+            margin-bottom: 0.2rem;
+            color: var(--light);
+        }
+        
+        .client-details p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        .contact-section {
+            background-color: white;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .contact-form {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        .footer-logo span {
+            color: var(--primary);
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .about-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="logo">
-                <h1>AI Learning Hub</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="ai-essentials.html">AI Essentials</a></li>
-                    <li><a href="weekly-updates.html">Weekly Updates</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+        <div class="logo">Tutor<span>4AI</span></div>
+        <div class="tagline">Personalized AI-Powered Learning Solutions</div>
+        <nav>
+            <a href="#home" class="active">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About Us</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
-
-    <section class="hero">
+    
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Transform Your Learning Experience with AI</h1>
+            <p>Personalized tutoring, immediate feedback, and adaptive learning paths designed for your success.</p>
+            <a href="#contact" class="btn">Schedule a Free Session</a>
+        </div>
+    </section>
+    
+    <section class="section" id="services">
         <div class="container">
-            <div class="hero-content">
-                <h2>Learn AI in a Friendly, Approachable Way</h2>
-                <p>No technical background needed. Just curiosity and a willingness to learn!</p>
-                <a href="contact.html" class="btn">Get Started Today</a>
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services">
+                <div class="service-card">
+                    <div class="service-img"></div>
+                    <div class="service-content">
+                        <h3>Personalized Tutoring</h3>
+                        <p>AI-powered one-on-one tutoring sessions tailored to your learning style, pace, and goals. Get help with homework, exam prep, or learning new concepts.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img"></div>
+                    <div class="service-content">
+                        <h3>Subject Mastery Programs</h3>
+                        <p>Comprehensive programs designed to build deep understanding in math, science, coding, humanities, and more. Our AI adapts to your progress.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img"></div>
+                    <div class="service-content">
+                        <h3>Test Preparation</h3>
+                        <p>Strategic preparation for standardized tests and exams with practice questions, simulated tests, and personalized feedback to improve your scores.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-
-    <section class="features">
-        <div class="container">
-            <h2>How I Can Help You</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🧠</div>
-                    <h3>AI Fundamentals</h3>
-                    <p>Understand what AI is and how it works in simple, everyday language.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔧</div>
-                    <h3>AI Tools</h3>
-                    <p>Learn about the most useful AI tools and how to use them effectively.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💬</div>
-                    <h3>Prompt Engineering</h3>
-                    <p>Master the art of communicating with AI to get the best results.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">👥</div>
-                    <h3>Small Group Tutoring</h3>
-                    <p>Learn with others in a supportive, collaborative environment.</p>
-                </div>
+    
+    <section class="section about-section" id="about">
+        <div class="container about-container">
+            <div class="about-img"></div>
+            <div class="about-content">
+                <h2>About Tutor4AI</h2>
+                <p>Tutor4AI was founded with a simple mission: to make high-quality education accessible to everyone through the power of artificial intelligence.</p>
+                <p>Our team of educators and AI specialists works together to create learning experiences that adapt to each student's unique needs, helping them achieve their academic goals faster and with greater confidence.</p>
+                <p>We believe that education should be personalized, engaging, and available whenever you need it. With our AI tutoring platform, we're making that vision a reality.</p>
             </div>
         </div>
     </section>
-
-    <section class="latest-updates">
+    
+    <section class="section testimonials-section" id="testimonials">
         <div class="container">
-            <h2>Latest AI Updates</h2>
-            <div class="update-preview">
-                <h3>Week of March 1, 2025</h3>
-                <p>Learn about the latest advancements in multimodal AI and how they're changing creative workflows.</p>
-                <a href="weekly-updates.html" class="btn btn-secondary">Read More</a>
+            <div class="section-title">
+                <h2>What Our Students Say</h2>
             </div>
-        </div>
-    </section>
-
-    <section class="testimonials">
-        <div class="container">
-            <h2>What My Students Say</h2>
-            <div class="testimonial-grid">
+            <div class="testimonials">
                 <div class="testimonial-card">
-                    <p>"I was intimidated by AI before, but now I use it confidently every day in my work."</p>
-                    <p class="testimonial-author">- Sarah K., Marketing Professional</p>
+                    <p>"Tutor4AI helped me improve my calculus grade from a C to an A- in just one semester. The personalized approach identified exactly where I was struggling and helped me build confidence."</p>
+                    <div class="client-info">
+                        <div class="client-img"></div>
+                        <div class="client-details">
+                            <h4>Michael R.</h4>
+                            <p>College Student</p>
+                        </div>
+                    </div>
                 </div>
+                
                 <div class="testimonial-card">
-                    <p>"The small group sessions were perfect - I learned so much from both the tutor and my fellow students."</p>
-                    <p class="testimonial-author">- Michael T., Small Business Owner</p>
+                    <p>"As a working parent, I needed flexible learning options for my daughter. Tutor4AI has been a game-changer. She can get help whenever she needs it, and I've seen her love for science grow tremendously."</p>
+                    <div class="client-info">
+                        <div class="client-img"></div>
+                        <div class="client-details">
+                            <h4>Sarah K.</h4>
+                            <p>Parent</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p>"The test prep program for the SAT was exactly what I needed. The practice questions adapted to my skill level, and the explanations were clear. I scored 150 points higher than on my practice test!"</p>
+                    <div class="client-info">
+                        <div class="client-img"></div>
+                        <div class="client-details">
+                            <h4>Jason T.</h4>
+                            <p>High School Student</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <section class="cta">
+    
+    <section class="section contact-section" id="contact">
         <div class="container">
-            <h2>Ready to Start Your AI Journey?</h2>
-            <p>Contact me today to learn about pricing and availability for consulting and tutoring sessions.</p>
-            <a href="contact.html" class="btn btn-large">Get in Touch</a>
+            <div class="section-title">
+                <h2>Get in Touch</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Have questions or ready to start your learning journey? Reach out to us today and we'll help you get started with the perfect tutoring solution.</p>
+                    
+                    <div class="contact-item">
+                        <i>📧</i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>nathan@tutor4ai.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i>📱</i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (123) 456-7890</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i>🕒</i>
+                        <div>
+                            <h4>Hours</h4>
+                            <p>Monday - Friday: 9am - 8pm</p>
+                            <p>Saturday: 10am - 4pm</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form action="mailto:nathan@tutor4ai.com" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
-
+    
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-info">
-                    <h3>AI Learning Hub</h3>
-                    <p>Making AI accessible to everyone through friendly, approachable tutoring.</p>
-                </div>
+                <div class="footer-logo">Tutor<span>4AI</span></div>
+                
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="ai-essentials.html">AI Essentials</a></li>
-                        <li><a href="weekly-updates.html">Weekly Updates</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#about">About</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#"><span>FB</span></a>
+                    <a href="#"><span>TW</span></a>
+                    <a href="#"><span>IG</span></a>
+                    <a href="#"><span>LI</span></a>
                 </div>
             </div>
+            
             <div class="copyright">
-                <p>&copy; 2025 AI Learning Hub. All rights reserved.</p>
+                <p>&copy; 2025 Tutor4AI. All rights reserved.</p>
             </div>
         </div>
     </footer>
-<!-- Update trigger -->)
-    <script src="js/script.js"></script>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active link
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+        
+        // Handle active navigation based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
